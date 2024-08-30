@@ -1,0 +1,26 @@
+---
+- hosts: web
+  remote_user: ec2-user
+  become: yes
+  tasks:
+  - name: install docker
+    yum:
+      name: docker
+      state: latest
+  - name: start docker
+    service:
+      name: docker
+      state: started
+      enabled: true
+  - name: pull image
+    docker_image:
+      name: prom/prometheus
+      state: present
+      source: pull
+  - name: run container
+    docker_container:
+      name: prometheus
+      image: prom/prometheus
+      published_ports: "9090:9090"
+      detach: yes
+      restart_policy: always
