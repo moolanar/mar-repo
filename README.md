@@ -7,4 +7,5 @@
 5.  paste in .ssh/authorized_keys  [ worker node ] 
 
 6. ansible all   -m ping -i inventory.yml
+7. ansible-playbook -i inventory.yml mybook.yml
 
