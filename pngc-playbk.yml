@@ -2,6 +2,17 @@
 - hosts: web
   remote_user: ec2-user
   become: yes
+  vars:
+    packages:
+    - name: prometheus
+      image: prom/prometheus
+      port: 9090:9090
+    - name: node-exporter
+      image: prom/node-exporter
+      port: 9100:9100
+    - name: grafana
+      image: grafana/grafana
+      port: 3000:3000
   tasks:
   - name: install docker
     yum:
@@ -12,15 +23,17 @@
       name: docker
       state: started
       enabled: true
-  - name: pull image
+  - name: pull images "{{ item.name }}"
     docker_image:
-      name: prom/prometheus
+      name: "{{ item.image }}"
       state: present
       source: pull
-  - name: run container
+    loop: "{{ packages }}"
+  - name: install "{{ item.name }}"
     docker_container:
-      name: prometheus
-      image: prom/prometheus
-      published_ports: "9090:9090"
+      name: "{{ item.name }}"
+      image: "{{ item.image }}"
+      published_ports: "{{ item.port }}"
       detach: yes
       restart_policy: always
+    loop: "{{ packages }}"
