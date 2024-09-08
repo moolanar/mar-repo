@@ -1,5 +1,5 @@
 1. yum install java -y
-2. sudo yum install java-1.8.0-amazon-corretto-devel   [ sudo yum install java-17-amazon-corretto-headless ]
+2. sudo yum install java-1.8.0-amazon-corretto-devel   [ sudo yum install java-17-amazon-corretto-devel ]
 3. yum install ansible -y
 
 4. ssh-keygen
