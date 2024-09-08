@@ -14,7 +14,8 @@
 10. sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 11. sudo dnf install jenkins -y
 
-
+//////////////
+yum-config-manager --enable epel
 
   /////////////
 
