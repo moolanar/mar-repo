@@ -10,11 +10,8 @@ pipeline {
         
         stage("Execute Ansible") {
             steps {
-                ansiblePlaybook(
-                    credentialsId: 'ansible-ssh',
-                    inventory: 'path/to/inventory',
-                    playbook: 'path/to/deploy.yaml'
-                )  
+                ansiblePlaybook inventory: 'inv.ynl', playbook: 'pngc-playbk.yml', vaultCredentialsId: 'ec2-user', vaultTmpPath: ''         
+               
         }    
     }
 }
