@@ -15,6 +15,9 @@
 11. sudo dnf install jenkins -y
 
 //////////////
+
+https://medium.com/@ishan_jan1/connecting-a-worker-node-to-a-jenkins-server-using-the-private-key-method-ae4d801282f4
+
 yum-config-manager --enable epel
 
   /////////////
