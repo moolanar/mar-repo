@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("SCM checkout") {
             steps {
-                git "https://https://github.com/moolanar/mar-repo"
+                git "https://github.com/moolanar/mar-repo"
             }
         }
         
