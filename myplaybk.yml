@@ -1,17 +1,14 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage("SCM checkout") {
+        stage('Hello') {
             steps {
+                echo 'Hello World'
                 git "https://github.com/moolanar/mar-repo"
+                ansiblePlaybook credentialsId: 'ssh', installation: 'ansible', inventory: 'inv.yml', playbook: 'pngc-playbk.yml', disableHostKeyChecking: true
+                
             }
         }
-        
-        stage("Execute Ansible") {
-            steps {
-                ansiblePlaybook inventory: 'inv.ynl', playbook: 'pngc-playbk.yml', vaultCredentialsId: 'ec2-user', vaultTmpPath: ''         
-               
-        }    
     }
 }
