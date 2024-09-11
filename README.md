@@ -1,3 +1,11 @@
+sudo yum install -y yum-utils shadow-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+
+//////////////////////////
+
+
+
 1. yum install java -y
 2. sudo yum install java-1.8.0-amazon-corretto-devel   [ sudo yum install java-17-amazon-corretto-devel ]
 3. yum install ansible -y
@@ -29,5 +37,4 @@ sudo yum upgrade
 sudo yum install fontconfig java-17-openjdk
 sudo yum install jenkins
 sudo systemctl daemon-reload
-
 /////////////
