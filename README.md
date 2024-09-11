@@ -8,6 +8,8 @@ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
+https://medium.com/@CloudTopG/the-7-simple-steps-to-create-a-load-balancer-instances-hosted-domain-in-route-53-using-terraform-d3085ffd33ed
+
 //////////////////////////
 
 
