@@ -4,6 +4,10 @@ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinu
 
 sudo yum -y install terraform
 
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
 //////////////////////////
 
 
