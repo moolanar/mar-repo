@@ -1,66 +1,89 @@
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class CheckPrimeNo {
 	
-	static long l = 0; 
-	
-	
-	public static void main(String s[]) {
+	public static void main(String s[]) { 
 		
-		BigInteger bi1 =  new BigInteger("36746043666799590428244633799627952632279158164343087642676032283815739666511279233373417143396810270092798736000000");
-	  //BigInteger bi2 =  new BigInteger("33478071698956898786044169848212690817704794983713768568912431388982883793878002000000000000000000000000000000000010");
-		BigInteger bi2 =  new BigInteger("36746043666799590428244633799627952632279158164343087642676032283815739666511279233373417143396810270092798736308920");
-
+		System.out.println(LocalDateTime.now()); 
+		
+		BigInteger start = new BigInteger("10000000001");
+		BigInteger end = null;
 		BigInteger ONE = new BigInteger("1");
-		BigInteger ZERO = new BigInteger("0");
+		BigInteger INC = new BigInteger("100000");
 		
-		boolean f = false;
+		for(int i = 0; i< 2000; i++ ){			
+			end = start.add(INC).subtract(ONE);			
+			new MyThread("T"+i, start, end).start();			
+			start = start.add(INC);			
+		}
 		
-		System.out.println("Compare result is ");
-		System.out.println( bi1.compareTo(bi2) );
+		System.out.println("end no  " + end);
+	}
+
+}
+
+class MyThread extends Thread {
+	String s = null;
+	BigInteger bi1 =  null;
+ 	BigInteger bi2 =  null;
+	BigInteger d = new BigInteger("1");
+	BigInteger ONE = new BigInteger("1");
+	BigInteger TWO = new BigInteger("2");
+	BigInteger ZERO = new BigInteger("0");
+	BigInteger r = null;
+	long c = 0;
+	long p = 0;
+	
+	long n = 10000L;
+	ArrayList al = new ArrayList();
+	
+	MyThread(String s , BigInteger bi1, BigInteger bi2 ) {
+		this.s = s;
+		this.bi1 = bi1;
+		this.bi2 = bi2;
+	}
+	
+	public void run() { 
 		
-		
-		
-		
-		while( (bi1.compareTo(bi2)) != 0) {	
- 			if(f) {
-				f=false;
-				continue;
-			}
-			
-			f = true;		
+		while( (bi1.compareTo(bi2)) != 0) {			 	
 			isPrime(bi1);
 			bi1 = bi1.add(ONE);
 		}
+		
 	}
 	
-	
- 
-	
-	static boolean isPrime(BigInteger bi) {
+	 boolean isPrime(BigInteger bi) {	
 		
-		boolean flag = true;
-		long n = 10000001L;
-		BigInteger d = new BigInteger("1");
-		BigInteger ONE = new BigInteger("1");
-		BigInteger ZERO = new BigInteger("0");
-		BigInteger r = null;
-		for ( long i=2; i<n; i++ ) { 
-			d = d.add(ONE);			
+		 ++c;
+		if(c % 5000 == 0 ) {
+			System.out.println(LocalDateTime.now() + " : " + s + " : " + p + " : " + bi ); 
+		}
+
+		r = null;
+		
+		r=bi.mod(TWO);
+		if((r.compareTo(ZERO)) == 0) {
+			//System.out.println("Not Prime " + bi  + " / " + r  + " / " + d);
+				return false;
+		}
+		
+		d = new BigInteger("1");
+		for ( long i=3; i<n; i=i+2 ) { 
+			d = d.add(TWO);			
 			r=bi.mod(d);
  			if((r.compareTo(ZERO)) == 0) {
 				//System.out.println("Not Prime " + bi  + " / " + r  + " / " + d);
  				return false;
-			}
-			
+			}			
 		}
 		
-		System.out.println("Possible Prime .. " + bi);
-		return flag;
-	}
+		
+		++p;
 
-	
-	static boolean isPrime(long bi) {
+		
 		return true;
 	}
+
 }
