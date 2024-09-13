@@ -6,14 +6,22 @@ public class CheckPrimeNo {
 	
 	public static void main(String s[]) { 
 		
+		BigInteger ONE = new BigInteger("1");
+		BigInteger INC = new BigInteger("1000000");  // iM * 10 threads
+		
 		System.out.println(LocalDateTime.now()); 
 		
-		BigInteger start = new BigInteger("10000000001");
-		BigInteger end = null;
-		BigInteger ONE = new BigInteger("1");
-		BigInteger INC = new BigInteger("100000");
+		//BigInteger start = new BigInteger("10000000001");
 		
-		for(int i = 0; i< 2000; i++ ){			
+		//
+		BigInteger factorarg = new BigInteger("10000000").multiply(new BigInteger(s[0])) ;  // 10 M per process 
+		BigInteger start = new BigInteger("10000000000").add(factorarg);
+		start = start.add(ONE);
+		BigInteger end = null;
+		
+		
+		
+		for(int i = 0; i< 10; i++ ){			
 			end = start.add(INC).subtract(ONE);			
 			new MyThread("T"+i, start, end).start();			
 			start = start.add(INC);			
@@ -35,6 +43,7 @@ class MyThread extends Thread {
 	BigInteger r = null;
 	long c = 0;
 	long p = 0;
+	StringBuilder sb = new StringBuilder();
 	
 	long n = 10000L;
 	ArrayList al = new ArrayList();
@@ -58,7 +67,10 @@ class MyThread extends Thread {
 		
 		 ++c;
 		if(c % 5000 == 0 ) {
-			System.out.println(LocalDateTime.now() + " : " + s + " : " + p + " : " + bi ); 
+			
+			System.out.print(sb.toString());
+			sb.delete(0, sb.length());
+			c=0;
 		}
 
 		r = null;
@@ -79,7 +91,7 @@ class MyThread extends Thread {
 			}			
 		}
 		
-		
+		sb.append(bi + "\n");
 		++p;
 
 		
