@@ -1,3 +1,5 @@
+https://learner.intuition.com/edcastscb/content/stream/a1c363f568474ca8848269dbce9b82cf
+
 sudo yum install -y yum-utils shadow-utils
 
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
