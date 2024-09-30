@@ -49,3 +49,14 @@ sudo yum install ansible -y
 sudo systemctl enabnle jenkins
 sudo systemctl start jenkins
 /////////////
+
+gradle 
+
+dependencies {
+    implementation platform('org.springframework.boot:spring-boot-dependencies:2.7.8')
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+////////
+
