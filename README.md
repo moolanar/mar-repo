@@ -52,6 +52,8 @@ sudo systemctl start jenkins
 
 gradle 
 
+wget -N https://services.gradle.org/distributions/gradle-7.0.2-all.zip
+
 dependencies {
     implementation platform('org.springframework.boot:spring-boot-dependencies:2.7.8')
 	implementation 'org.springframework.boot:spring-boot-starter'
