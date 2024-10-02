@@ -53,6 +53,9 @@ sudo systemctl start jenkins
 gradle 
 
 wget -N https://services.gradle.org/distributions/gradle-7.0.2-all.zip
+mkdir /opt/gradle
+unzip -d /opt/gradle gradle-7.0.2-all.zip
+export PATH=$PATH:
 
 dependencies {
     implementation platform('org.springframework.boot:spring-boot-dependencies:2.7.8')
