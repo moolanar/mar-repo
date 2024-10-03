@@ -24,7 +24,7 @@ https://medium.com/@CloudTopG/the-7-simple-steps-to-create-a-load-balancer-insta
 
 5.  cat /home/ec2-user/.ssh/id_rsa.pub [ control node ] --> copy
 6.  paste in .ssh/authorized_keys  [ worker node ] 
-
+6.1 ssh ec2-user@worker_ip
 7. ansible all   -m ping -i inventory.yml
 8. ansible-playbook -i inventory.yml mybook.yml
 
