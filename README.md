@@ -39,15 +39,23 @@ https://medium.com/@ishan_jan1/connecting-a-worker-node-to-a-jenkins-server-usin
 yum-config-manager --enable epel
 
   /////////////
+  
 #server1 ansible_host=203.0.113.111 ansible_user=sammy  
 
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
 sudo yum install java-17-amazon-corretto-devel -y
+
 sudo yum install jenkins -y
+
 sudo yum install ansible -y
+
 sudo systemctl enabnle jenkins
+
 sudo systemctl start jenkins
+
 /////////////
 
 gradle 
