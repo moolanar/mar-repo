@@ -57,3 +57,57 @@ for K in range(20):
 #plotting the rmse values against k values
 curve = pd.DataFrame(rmse_val) #elbow curve 
 curve.plot()
+
+
+############################################################################
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_diabetes
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+
+# Load the Diabetes dataset
+diabetes = load_diabetes()
+X = diabetes.data
+y = diabetes.target
+
+# Print dataset description
+print(diabetes.DESCR)
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Standardize the features
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Create and train the KNN regressor
+knn_regressor = KNeighborsRegressor(n_neighbors=5)
+knn_regressor.fit(X_train, y_train)
+
+# Make predictions on the test data
+y_pred = knn_regressor.predict(X_test)
+
+# Evaluate the model
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f'Mean Squared Error: {mse}')
+print(f'R-squared: {r2}')
+
+# Visualize the results
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, y_pred, color='blue', label='Predicted vs Actual')
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linewidth=2, label='Ideal fit')
+plt.title('KNN Regression: Predicted vs Actual')
+plt.xlabel('Actual Disease Progression')
+plt.ylabel('Predicted Disease Progression')
+plt.legend()
+plt.show()
+
+
+############################################################################
