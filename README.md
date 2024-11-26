@@ -1,3 +1,4 @@
+https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/k_nearest_neighbors_covtype/k_nearest_neighbors_covtype.html
 https://archive.ics.uci.edu/ml/machine-learning-databases/covtype/covtype.data.gz
 
 https://learner.intuition.com/edcastscb/content/stream/a1c363f568474ca8848269dbce9b82cf
