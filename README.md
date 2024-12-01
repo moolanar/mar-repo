@@ -1,6 +1,7 @@
 Contact: +600189873351 / E-Mail: abdul-rahim.mannan-mohamed@sc.com
+Artificial Intelligence:		ANN, CNN, RNN, NLP
 
-Project: eBBS-ATLAS Release Management
+Project: eBBS-ATLAS Release Managementhttps://github.com/moolanar/mar-repo/blob/master/README.md
  
 Description: An Online CORE BANKING System which developed and used by Standard Chartered Bank in 45 + countries. India, Singapore, Malaysia. Great Britain, Germany, Pakistan, UAE, and some of the major countries to name some. Earlier know as eBBS (Electronic Branch Banking System).
 This system also integrates with various interfaces like ATM, CDM, Uploads, Payments, and SC STAR for SWIFT Message, MTS, and many other external systems for transaction processing and generates download to external systems to make sure core banking system-based processing can be done above that.
