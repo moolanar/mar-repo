@@ -1,3 +1,5 @@
+Contact: +600189873351 / E-Mail: abdul-rahim.mannan-mohamed@sc.com
+
 Project: eBBS-ATLAS Release Management
  
 Description: An Online CORE BANKING System which developed and used by Standard Chartered Bank in 45 + countries. India, Singapore, Malaysia. Great Britain, Germany, Pakistan, UAE, and some of the major countries to name some. Earlier know as eBBS (Electronic Branch Banking System).
