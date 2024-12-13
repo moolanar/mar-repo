@@ -1,0 +1,50 @@
+1) A real estate company wants to provide its customers with a more accurate prediction of the final sale price for houses they are considering in various cities. 
+To do this, the company wants to use a fully connected neural network trained on data from the previous ten years of home sales, as well as other features.
+
+What kind of machine learning problem does this situation represent? 
+
+A) Reinforcement Learning
+B) Regression
+C) Classification
+D) Recommender system
+
+2) A manufacturing company wants to increase the longevity of its factory machines by predicting when a machine part is about to stop working, jeopardizing the health of the machine. The company’s team of Data Scientists will build an ML model to accomplish this goal. The model will be trained on data made up of consumption metrics from similar factory machines, and will span a time frame from one hour before a machine part broke down to five minutes after the part degraded.
+
+What kind of machine learning algorithm should the company use to build this model?
+
+A) CNN
+B) Scikit Linear regression
+C) AWS Sagemaker DeepAR
+D) Scikit Random forest 
+
+3) A Data Scientist working for an autonomous vehicle company is building an ML model to detect and label people and various objects (for instance, cars and traffic signs) that may be encountered on a street. The Data Scientist has a dataset made up of labeled images, which will be used to train their machine learning model.
+
+What kind of ML algorithm should be used?
+
+A) Semntic Segmentation
+B) Image classification
+C) Instance segmentaition
+D) Image localization 
+
+4)A Data Scientist is training a convolutional neural network model to detect incoming employees at the company’s front gate using a camera so that the system opens for them automatically. However, the model is taking too long to converge and the error oscillates for more than 10 epochs.
+
+What should the Data Scientist do to improve upon this situation? (Select TWO.)
+
+A) Add more epochs 
+B) Decrease weight decay
+C) increase batch size
+D) Add batch normalizaion
+E) Normalize image before training
+
+
+
+5) A Data Scientist at a waste recycling company trained a CNN model to classify waste at the company’s sites. Incoming waste was classified as either trash, compost, or recyclable to make it easier for the machines to split the incoming waste into the appropriate bins.
+
+During model testing, the F1 score was 0.918. The company’s senior leadership originally asked the Data Scientist to reach an F1 score of at least 0.95.
+
+What should the Data Scientist do to improve this score without spending too much time optimizing the model?
+
+A) Run Sagemaker training job for more epochs
+B) use momentum to improve training in sagemaker training job
+C) Increate batch size to improve score in sagemaker traing job
+D) Use Sagemeker tuning jobs to tune hyperparameters 
