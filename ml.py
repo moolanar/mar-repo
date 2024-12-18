@@ -1,3 +1,7 @@
+#https://saturncloud.io/blog/using-aws-sagemaker-input-modes-amazon-s3-efs-or-fsx/
+
+#//////////////////
+
 #  Step 1: Read the file
 import pandas as pd
 df = pd.read_csv('train.csv')
