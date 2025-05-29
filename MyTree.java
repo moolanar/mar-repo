@@ -10,8 +10,7 @@ public class MyTree {
 	}
 }
 
-class Node {
-	
+class Node {	
 	int data;
 	Node leftchild, rightchild;
 	
@@ -81,16 +80,8 @@ class Tree {
 	       while (!queue.isEmpty()) {
 	           Node tempNode = queue.poll();
 	           System.out.print(tempNode.data + " ");
-	
-	           /*add left child to the queue */
-	           if (tempNode.left != null) {
-	               queue.add(tempNode.left);
-	           }
-	
-	           /*add right right child to the queue */
-	           if (tempNode.right != null) {
-	               queue.add(tempNode.right);
-	           }
+	           if (tempNode.left != null) queue.add(tempNode.left);	           
+	           if (tempNode.right != null) queue.add(tempNode.right);
 	       }
    }
 	
