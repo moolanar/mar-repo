@@ -25,3 +25,64 @@ FROM regional_sales
 WHERE total_sales > (SELECT AVG(total_sales) FROM regional_sales);
 
 ------------------------------
+
+CREATE TABLE sales (
+    sale_id INT PRIMARY KEY,
+    salesperson VARCHAR(50),
+    region VARCHAR(50),
+    sale_date DATE,
+    amount INT
+);
+
+INSERT INTO sales (sale_id, salesperson, region, sale_date, amount) VALUES
+(1, 'Alice', 'East', '2026-01-05', 100),
+(2, 'Alice', 'East', '2026-01-12', 150),
+(3, 'Bob',   'East', '2026-01-08', 200),
+(4, 'Charlie', 'West', '2026-01-03', 300),
+(5, 'Charlie', 'West', '2026-01-20', 100),
+(6, 'Diana', 'West', '2026-01-15', 250);
+
+====================================
+
+SELECT
+    salesperson,
+    SUM(CASE WHEN region = 'East' THEN amount ELSE 0 END) AS east_total,
+    SUM(CASE WHEN region = 'West' THEN amount ELSE 0 END) AS west_total,
+    SUM(amount) AS grand_total
+FROM sales
+GROUP BY salesperson
+ORDER BY salesperson;
+
+=============================
+
+SELECT salesperson, region, amount,
+       ROW_NUMBER() OVER (PARTITION BY region ORDER BY amount DESC) AS row_num
+FROM sales;
+
+SELECT salesperson, amount,
+       RANK() OVER (ORDER BY amount DESC) AS rnk,
+       DENSE_RANK() OVER (ORDER BY amount DESC) AS dense_rnk
+FROM sales
+WHERE region = 'East';
+
+SELECT salesperson, sale_date, amount,
+       SUM(amount) OVER (ORDER BY sale_date) AS running_total
+FROM sales
+WHERE region = 'East'
+ORDER BY sale_date;
+
+SELECT salesperson, sale_date, amount,
+       LAG(amount) OVER (ORDER BY sale_date) AS previous_sale,
+       LEAD(amount) OVER (ORDER BY sale_date) AS next_sale
+FROM sales
+WHERE region = 'East'
+ORDER BY sale_date;
+
+SELECT * FROM (
+    SELECT salesperson, region, amount,
+           RANK() OVER (PARTITION BY region ORDER BY amount DESC) AS rnk
+    FROM sales
+) ranked
+WHERE rnk = 1;
+
+=====================
